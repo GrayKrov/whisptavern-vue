@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Merriweather&display=swap");
+
+:root {
+  --bg-base: #ede2ce;
+  --bg-panel: #f9f4e8;
+  --text-main: #2e1f0f;
+  --accent-gold: #c59e65;
+  --highlight-glow: #ffe9b3;
+  --shadow: rgba(90, 61, 43, 0.5);
+  --forest-green: #3b4d36;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  padding: 20px;
+}
+
+a {
+  color: var(--forest-green);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--accent-gold);
+  text-decoration: none;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-gold);
+  color: var(--text-main);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 0 8px var(--highlight-glow);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  background-color: var(--highlight-glow);
+}
+
+/* Grid Layout */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.grid-item {
+  background-color: var(--bg-panel);
+  border: 2px solid var(--accent-gold);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 12px var(--shadow);
+}
+
+/* Banner */
+
+.banner-top {
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.banner-img {
+  width: 100%;
+  height: 320px;
+  max-width: 1200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Navigation Bar */
+
+.nav {
+  max-width: 1200px;
+  margin: 12px auto 0 auto;
+  padding: 12px 0;
+  background-color: var(--forest-green);
+  border: 2px solid var(--accent-gold);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 4px 6px rgba(56, 45, 33, 0.3);
+  box-sizing: border-box;
+  grid-area: nav;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0 1.5rem;
+}
+
+.nav-list a {
+  font-family: "IM Fell English SC", serif;
+  color: var(--accent-gold);
+  font-size: 1.25rem;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  background-color: var(--highlight-glow);
+  color: var(--text-main);
+  box-shadow: 0 0 6px var(--highlight-glow);
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+  font-family: "IM Fell English SC", serif;
+  color: var(--accent-gold);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 8px 20px;
+  border-radius: 8px;
+  user-select: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect on the dropbtn */
+.dropbtn:hover {
+  background-color: var(--highlight-glow);
+  color: var(--text-main);
+  box-shadow: 0 0 6px var(--highlight-glow);
+}
+
+/* Dropdown content container */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--forest-green);
+  min-width: 180px;
+  border: 2px solid var(--accent-gold);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(56, 45, 33, 0.3);
+  margin-top: 8px;
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+/* Dropdown items */
+.dropdown-content li {
+  list-style: none;
+}
+
+/* Dropdown links */
+.dropdown-content li a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-family: "IM Fell English SC", serif;
+  font-size: 1.1rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect on dropdown links */
+.dropdown-content li a:hover {
+  background-color: var(--highlight-glow);
+  color: var(--text-main);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Sidebar */
+
+.sidebar {
+  grid-area: sidebar;
+  font-family: "Merriweather", serif;
+  color: var(--text-main);
+}
+
+.sidebar-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sidebar-list li::before {
+  content: "» ";
+  color: var(--accent-gold);
+  padding-right: 4px;
+}
+
+/* Main Content */
+
+.main {
+  grid-area: main;
+  font-family: "Merriweather", serif;
+  color: var(--text-main);
+}
+
+.main h1,
+.sidebar h2 {
+  font-family: "IM Fell English SC", serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px var(--shadow);
+}
+
+.main p,
+.sidebar li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+
+.footer {
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--accent-gold);
+  background-color: var(--forest-green);
+  border: 2px solid var(--accent-gold);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 0 4px 6px rgba(56, 45, 33, 0.3);
+  grid-area: footer;
+}
+
+.footer a {
+  color: var(--highlight-glow);
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "nav"
+      "sidebar"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .banner-img {
+    height: 220px;
+  }
+
+  .main h1 {
+    font-size: 1.8rem;
+  }
+
+  .main p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-item {
+    padding: 16px;
+  }
+  .banner-img {
+    height: 180px;
+  }
+  .nav-list a {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+  .main h1 {
+    font-size: 1.5rem;
+  }
+  .main p,
+  .sidebar li {
+    font-size: 0.95rem;
+  }
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .banner-img {
+    height: 140px;
+  }
+  .main h1 {
+    font-size: 1.2rem;
+  }
+  .main p {
+    font-size: 0.85rem;
+  }
+  .nav-list a {
+    font-size: 0.9rem;
+  }
+  .cta-button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
